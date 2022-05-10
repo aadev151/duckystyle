@@ -1,0 +1,64 @@
+.title {
+    font-size: 45px;
+    font-weight: 800;
+}
+
+.subtitle {
+    font-size: 28px;
+}
+
+.is-pink {
+    background-color: fuchsia;
+    border-color:fuchsia;
+    color: white;
+}
+.is-pink:hover {
+    color: white;
+    border: 1px solid white;
+}
+.is-pink:active {
+    color: white;
+    border: 1.5px solid white;
+}
+
+.is-pink-outlined {
+    background-color: transparent;
+    border: 1.5px solid fuchsia;
+    color: fuchsia;
+}
+.is-pink-outlined:hover {
+    background-color: fuchsia;
+    border-color:fuchsia;
+    color: white;
+}
+
+.balance:after {
+    content: url('/static/img/coin.png');
+}
+.large-balance:after {
+    content: url('/static/img/large_coin.png');
+}
+
+.anno-box {
+    background-color: #333;
+}
+
+.arrow {
+    width: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.arrow:hover {
+    cursor: pointer;
+}
+
+.gradient {
+    background: linear-gradient(to right, fuchsia, fuchsia, blue, blue);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+p {
+    font-size: 21px;
+}

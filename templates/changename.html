@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %} Change name | DuckyStyle {% endblock %}
+
+{% block content %}
+
+<h1 class="title">Change name</h1>
+<form action="/changename" method="post">
+    <div class="column is-12">
+        <div class="column is-10 is-offset-1">
+            <input class="input is-large is-fullwidth" placeholder="{{ current_user.name }}" name="name" required>
+        </div>
+        <button class="button is-large is-pink" type="submit">Submit</button>
+    </div>
+</form>
+
+{% endblock %}

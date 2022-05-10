@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %} {{ title }} | DuckyStyle {% endblock %}
+
+{% block content %}
+
+<h1 class="title">{{ title }}</h1>
+
+{% if title != my_title %}
+<a class="button is-medium is-pink" href="/collection/our">Our collection &rightarrow;</a>
+<br><br>
+{% endif %}
+
+<table class="table is-striped" style="width: 100%">
+    <thead>
+        <tr>
+            <th>DFT name</th>
+            <th>Price</th>
+            <th>Owner</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for dft in dfts %}
+        {% if dft.price != -1 or title == my_title %}
+        <tr>
+            <th><a href="/dft/{{dft.id}}" class="link">{{ dft.name }}</a></th>
+        {% if dft.price != -1 %}
+            {% if title != my_title %}
+            <td class="balance">{{ dft.price }}&nbsp;</td>
+            {% else %}
+            <td class="balance">On sale: {{ dft.price }}&nbsp;</td>
+            {% endif %}
+        {% else %}
+            <td>Owned</td>
+        {% endif %}
+            {% if title == my_title %}
+            <td>You</td>
+            {% else %}
+            <td>{{ dft.owner.name }}</td>
+            {% endif %}
+            <td><img src="/static/img/dfts/{{dft.image}}" style="height: 200px; pointer-events: none;"></td>
+        </tr>
+        {% endif %}
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

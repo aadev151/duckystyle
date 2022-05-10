@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/css/bulma.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <noscript>
+        <meta http-equiv="refresh" content="0;url=/noscript">
+    </noscript>
+
+    <title>{% block title %} DuckyStyle Store 🦆 {% endblock %}</title>
+</head>
+<body>
+    <section class="hero is-black is-fullheight" id="firstBlock">
+        <div class="container">
+            <br>
+            <nav class="navbar">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="/">
+                        <img src="/static/img/logo.png" width="112" height="28">
+                    </a>
+
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+
+                <div id="navbarBasicExample" class="navbar-menu">
+                    <div class="navbar-end">
+                        {% if show_coins %}
+                        <a class="navbar-item balance">
+                            <strong>My balance: {{ balance }}&nbsp;</strong>
+                        </a>
+                        {% else %}
+                        <a class="navbar-item" href="/collection" id="collection">
+                            <strong>DFTs collection</strong>
+                        </a>
+                        {% endif %}
+
+                        <a class="navbar-item" href="/about" id="about">
+                            About
+                        </a>
+
+                        <a class="navbar-item" href="/faq">
+                            FAQ
+                        </a>
+
+                        {% if not current_user.is_authenticated %}
+                        <div class="navbar-item">
+                            <div class="buttons">
+                                <a class="button is-pink" href="/signup">
+                                    Sign up
+                                </a>
+                                <a class="button is-light" href="/login">
+                                    Log in
+                                </a>
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="navbar-item">
+                            <div class="buttons">
+                                <a class="button is-pink" href="/post" id="postDFT">
+                                    Post a DFT
+                                </a>
+                                <a class="button is-light" href="/profile">
+                                    Profile
+                                </a>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </nav>
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+                      if ($navbarBurgers.length > 0) {
+                          $navbarBurgers.forEach( el => {
+                              el.addEventListener('click', () => {
+                                  const target = el.dataset.target;
+                                  const $target = document.getElementById(target);
+                                  el.classList.toggle('is-active');
+                                  $target.classList.toggle('is-active');
+
+                              });
+                          });
+                      }
+
+                });
+            </script>
+        </div>
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </section>
+    {% block page2 %}{% endblock %}
+</body>
+</html>

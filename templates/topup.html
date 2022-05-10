@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %} Top up the balance | DuckyStyle {% endblock %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="notification is-danger">
+    {{ messages[0]|safe }}
+</div>
+<br>
+{% endif %}
+{% endwith %}
+
+<h1 class="title">Top up my balance</h1>
+<h2 class="subtitle">Please, enter the sum (1DC = $1)</h2>
+
+<br>
+
+<form action="/topup/success" method="post">
+    <input class="input is-medium" type="number" value="10" min="1" id="amount" name="amount" oninput="changeInfo()" required>
+    <h2 class="balance" id="info">You need to pay $10 for 10&nbsp;</h2>
+    <br>
+    <button class="button is-medium is-pink" type="submit">Top up</button>
+</form>
+
+<script>
+    function changeInfo() {
+        var moneyAmount = document.getElementById('amount').value
+        document.getElementById('info').innerHTML = `You need to pay \$${ moneyAmount } for ${ moneyAmount }&nbsp;`
+    }
+</script>
+
+{% endblock %}

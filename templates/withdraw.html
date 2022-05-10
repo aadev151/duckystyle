@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %} Withdraw Duckcoins | DuckyStyle {% endblock %}
+
+{% block content %}
+
+<h1 class="title">Withdraw Duckcoins</h1>
+<br>
+<h2 class="subtitle balance">Your balance: {{ (current_user.balance + current_user.non_refundable)|round(2) }}&nbsp;</h2>
+<a class="subtitle balance">Withdrawable: {{ current_user.balance }}&nbsp;</a>
+&nbsp;&nbsp;&nbsp;
+<a class="button is-small is-light" href="/about#balance"><strong>Why?</strong></a>
+
+<br>
+<br>
+<br>
+
+<div class="column is-6 is-offset-3">
+    <form action="/withdraw/success" method="post">
+        <input class="input is-medium" type="number" value="1" min="1" max="{{current_user.balance}}" id="amount" name="amount" oninput="changeInfo()" required>
+        <h2 class="balance" id="info">You will get $1 for 1&nbsp;</h2>
+        <br>
+        <button class="button is-medium is-pink" type="submit">Withdraw</button>
+</form>
+</div>
+
+<script>
+    function changeInfo() {
+        var moneyAmount = document.getElementById('amount').value
+        document.getElementById('info').innerHTML = `You will get \$${ moneyAmount } for ${ moneyAmount }&nbsp;`
+    }
+</script>
+
+{% endblock %}

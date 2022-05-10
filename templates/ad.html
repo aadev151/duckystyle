@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %} Earn DuckCoins | DuckyStyle {% endblock %}
+
+{% block content %}
+
+<h1 class="title">Advertisement</h1>
+<h2 class="subtitle">Please, do not close this page. After watching the ad, the money will be added automatically</h2>
+
+<video id="ad" style="width: 65%" autoplay onended="getMoney()">
+    <source src="/static/video/ads/{{url}}">
+</video>
+
+<form method="post" action="/earn/getaward" id="form" hidden></form>
+
+
+<script>
+    function getMoney() {
+        document.forms[0].submit()
+    }
+</script>
+
+{% endblock %}

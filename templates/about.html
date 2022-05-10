@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %} About DuckyStyle {% endblock %}
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<h1 class="title">About DuckyStyle</h1>
+<h2 class="subtitle gradient">A completely new way to earn money.</h2>
+<img class="arrow" src="/static/img/arrow.gif" onclick="$('html, body').animate({scrollTop: $('#firstBlock').height()}, 500);">
+
+{% endblock %}
+
+{% block page2 %}
+
+<section class="hero is-black is-fullheight" id="secondBlock">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title gradient">DFT</h1>
+            <h2 class="subtitle">DFT stands for "Duck Functional Token"</h2>
+            <br>
+            <p>
+                What can <strong>you</strong> do with a DFT? That's a good question. Well, for instance...
+                <br>
+                Buy one and enjoy the ownership of a unique picture;
+                <br>
+                Make a profile picture, just like <a href="https://www.coindesk.com/business/2022/01/01/oscar-winning-rapper-eminem-purchases-bored-ape-yacht-club-nft-for-462k/" target="_blank" class="link">Eminem did</a>;
+                <br>
+                Retail one on our website and <a class="gradient">earn real cash</a>.
+                <br>
+                And that's actually just a few of the things that you can do with a DFT.
+            </p>
+            <br>
+            <br>
+            <br>
+            <h1 class="title gradient">Why should I?</h1>
+            <p>
+                That's just a good way to invest your money! You can be sure that you won't lose your dollars because DuckCoins is a stable currency, <strong>always</strong> equal to $1.
+                <br>
+                Moreover, you need no investments or even credit card to start! Just <a href="/signup" class="link">sign up</a> on our website!
+            </p>
+            <br>
+            <br>
+            <br>
+            <h1 class="title gradient">How can I start?</h1>
+            <p>
+                After <a href="/signup" class="link">registering</a> on the website, you'll get 10 DuckCoins. You can also earn some more by watching ads. On them, you can buy a DFT from <a href="/collection/our">our collection</a> and then retail it, making some money.
+                <br>
+                Have a good luck!
+            </p>
+            <br>
+            <br>
+            <br>
+            <h2 class="subtitle">If you have any questions left, please feel free to check the <a href="/faq" class="link">FAQ page</a>.</h2>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

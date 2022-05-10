@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %} Post a DFT | DuckyStyle {% endblock %}
+
+{% block content %}
+
+<h1 class="title">Post a DFT</h1>
+<br>
+<div style="text-align: center; border: 1px solid white; border-radius: 10px; height: 300px; width: 300px; margin-left: auto; margin-right: auto;">
+    <p id="dftlabel">
+        Your DFT will show here
+    </p>
+    <img style="width: 100%; max-height: 100%; margin-top: auto; margin-bottom: auto;" id="dftimage" hidden>
+</div>
+<br>
+<br>
+<div class="column is-10 is-offset-1">
+    <form action="/post" enctype="multipart/form-data" method="post">
+        <div class="control">
+            <input class="input is-large is-fullwidth" placeholder="DFT's name" name="name" required>
+        </div>
+        <br>
+        <div class="control">
+            <input class="input is-large is-fullwidth" placeholder="Price" type="number" min="1" name="price" required>
+            <label>Because of the 5% fee, when someone buys your DFT, you will get 95% of the price</label>
+        </div>
+        <br>
+        <div class="control">
+            <label for="loadfile">Press the button or drop your file in the field below</label>
+            <input class="button is-large is-fullwidth is-light" type="file" accept="image/*" id="loadfile" name="image" onchange="loadFile(event)" required>
+        </div>
+        <br>
+        <button class="button is-large is-pink" type="submit">Submit</button>
+    </form>
+</div>
+
+<script>
+var loadFile = function(event) {
+	var image = document.getElementById('dftimage')
+	image.hidden = false
+	document.getElementById('dftlabel').hidden = true
+	image.src = URL.createObjectURL(event.target.files[0])
+};
+</script>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %} Our collection of DFTs | DuckyStyle {% endblock %}
+
+{% block content %}
+
+<h1 class="title">Or collection of DFTs</h1>
+<h2 class="subtitle">You can buy these DFTs for your start 10 Duckcoins and the ones you earn from watching ads</h2>
+
+<a class="button is-medium is-pink" href="/collection">All DFTs &rightarrow;</a>
+<br><br>
+
+<table class="table is-striped" style="width: 100%">
+    <thead>
+        <tr>
+            <th>DFT name</th>
+            <th>Price</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for dft in dfts %}
+        <tr>
+            <th><a href="/dft/our/{{dft.id}}" class="link">{{ dft.name }}</a></th>
+            <td class="balance">{{ dft.price }}&nbsp;</td>
+            <td><img src="/static/img/dfts/{{dft.image}}" style="height: 200px; pointer-events: none;"></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

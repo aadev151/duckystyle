@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %} Log in | DuckyStyle {% endblock %}
+
+{% block content %}
+
+<div class="column is-6 is-offset-3">
+    <h3 class="title" style="font-size: 35px">Log in</h3>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="notification is-danger">
+        {{ messages[0] }}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <form method="post" action="/login">
+        <div class="field">
+            <div class="control">
+                <input type="text" class="input is-fullwidth is-medium" placeholder="Username" name="username" value="{{ username }}" required>
+            </div>
+            <br>
+            <div class="control">
+                <input type="password" class="input is-fullwidth is-medium" placeholder="Password" name="password" required>
+            </div>
+            <br>
+            <button class="button is-pink-outlined is-fullwidth is-medium" type="submit">Log in</button>
+        </div>
+    </form>
+
+{% endblock %}

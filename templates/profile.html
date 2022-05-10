@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %} Hello {{ current_user.name }} | DuckyStyle {% endblock %}
+
+{% block content %}
+
+<h1 class="title" id="hello">
+    Welcome back, {{ current_user.name }}! <a class="button is-light is-small" href="/changename">Change name</a>
+</h1>
+<p>@{{current_user.username}}</p>
+<br><br>
+<a class="button is-pink is-large" href="/wallet">My wallet</a>
+&nbsp;&nbsp;
+<a class="button is-pink is-large" href="/my">My DFTs</a>
+<br><br>
+<a class="button is-medium is-light" href="/collection">DFT collection</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a class="button is-medium is-light" href="/logout">Log out</a>
+
+{% endblock %}

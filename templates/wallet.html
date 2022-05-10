@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %} My wallet | DuckyStyle {% endblock %}
+
+{% block content %}
+
+<h1 class="title" style="font-size: 55px; text-decoration: underline;">My wallet</h1>
+<a class="title large-balance" style="font-size: 40px">
+    {{ current_user.balance + current_user.non_refundable }}
+</a>
+<a class="title" style="font-size: 40px">
+    &nbsp;&nbsp;&nbsp;&rightarrow;&nbsp;&nbsp;&nbsp;${{ current_user.balance + current_user.non_refundable }}
+</a>
+
+<br><br><br>
+
+<a class="button is-large is-pink" href="/withdraw">Withdraw &rightarrow;</a>
+
+<br><br>
+
+<a class="button is-light is-medium" href="/topup">Top up my balance</a>
+&nbsp;&nbsp;&nbsp;
+<a class="button is-light is-medium" href="/earn">Earn more Duckcoins</a>
+
+{% endblock %}

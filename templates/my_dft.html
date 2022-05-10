@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %} "{{ dft.name }}" DFT | DuckyStyle {% endblock %}
+
+{% block content %}
+
+<h1 class="title">"{{ dft.name }}" DFT</h1>
+<br>
+
+<img src="/static/img/dfts/{{ dft.image }}" style="height: 320px">
+
+{% if current_user.is_authenticated %}
+<br>
+<br>
+<a href="/static/img/dfts/{{ dft.image }}" class="button is-large is-pink" download>Download &rightarrow;</a>
+{% endif %}
+
+{% endblock %}
